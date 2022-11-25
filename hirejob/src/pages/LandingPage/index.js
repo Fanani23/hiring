@@ -151,7 +151,7 @@ const LandingPage = () => {
             <img className="mt-8 ml-8" src={Assets.HomeBr} alt="" />
           </div>
         </div>
-        <div className="bg-neutral-300 mx-auto w-full">
+        <div className="bg-neutral-300 mt-10 mx-auto w-full">
           <div className="pt-10">
             <p className="font-sans text-black text-semibold text-4xl">
               Their opinion about peworld
