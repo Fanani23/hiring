@@ -5,13 +5,15 @@ import imgProfile from '../../../../assets/profile image.jpg'
 import location from '../../../../assets/location.png'
 import edit from '../../../../assets/edit.png'
 import {Link} from 'react-router-dom'
+import NavbarBeforeLogin from '../../../../components/navbar/navbarBeforeLogin'
 
 
 const EditProfilePekerja = () => {
   return (
     <div>
         <header>
-            <NavbarAfterLogin />
+            {/* <NavbarAfterLogin /> */}
+            <NavbarBeforeLogin />
         </header>
 
         <section>
