@@ -9,7 +9,7 @@ import styles from './index.module.css'
 const NavbarAfterLogin = () => {
   return (
     <navbar>
-        <div className={styles.body}>
+        <div className={'drop-shadow-xl '+styles.body}>
             <div className='container mx-auto flex py-8'>
                 <div className="wrapperimg">
                     <img src={icon} alt="icon" />
