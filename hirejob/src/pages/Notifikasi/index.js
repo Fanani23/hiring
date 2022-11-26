@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './notif.module.css'
-import gambar1 from '../../img/1.png'
-import gambar2 from '../../img/2.png'
-import gambar3 from '../../img/3.png'
-import gambar4 from '../../img/4.png'
+import gambar1 from '../../assets/1.png'
+import gambar2 from '../../assets/2.png'
+import gambar3 from '../../assets/3.png'
+import gambar4 from '../../assets/4.png'
 
 export default function Notifikasi() {
     return (

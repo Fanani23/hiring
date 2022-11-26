@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Login.module.css'
-import Peworld from '../../../img/Group 978.png';
+import Peworld from '../../../assets/Group 978.png';
 
 export default function LoginRecruiter() {
 

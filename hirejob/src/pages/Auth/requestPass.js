@@ -1,5 +1,5 @@
 import React from "react";
-import keyPass from "../../img/Group 1166.png"
+import keyPass from "../../assets/Group 1166.png"
 
 export default function RequestPassword() {
     return (

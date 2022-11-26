@@ -1,10 +1,6 @@
 import React from 'react'
 import styles from './chat.module.css'
-// import Footer from '../../img/Group 114.png';
-// import Person from '../../img/Mask Group.png';
-// import Elip from '../../img/Elipse 295.png';
-// import Vector from '../../img/Vector.png';
-import chat from '../../img/chat.png'
+import chat from '../../assets/chat.png'
 
 
 export default function Chat() {

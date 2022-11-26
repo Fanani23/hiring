@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Register.module.css'
-import Peworld from '../../../img/Group 980 2.png';
+import Peworld from '../../../assets/Group 980 2.png';
 
 export default function RegisterRecruiter() {
   return (
