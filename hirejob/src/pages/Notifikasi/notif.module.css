@@ -1,0 +1,23 @@
+.container{
+    /* width: 100vw;
+    height: 100vh; */
+    background-color: rgb(224, 222, 222);
+}
+.top{
+    background-color: blueviolet;
+    height: 50px;
+    padding-left: 100px ;
+    margin-bottom: 30px;
+}
+.content{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.box{
+    display: flex;
+    justify-content: flex-start;
+    background-color: white;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
