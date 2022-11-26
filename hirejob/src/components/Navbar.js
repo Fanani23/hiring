@@ -17,7 +17,7 @@ const Navbar = () => {
           <button
             type="button"
             className="text-violet-600 bg-white hover:bg-violet-600 hover:text-white border-2 border-violet-600 focus:ring-1 focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0"
-            onClick={() => navigate("/home")}
+            onClick={() => navigate("/landing-login")}
           >
             Masuk
           </button>

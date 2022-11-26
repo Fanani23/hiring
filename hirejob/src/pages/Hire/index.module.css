@@ -1,0 +1,17 @@
+.imgProfile{
+    width: 180px;
+    height: 180px;
+}
+.imgedit{
+    width: 18px;
+    height: 18px;
+}
+.wrapperimg{
+    width: 180px;
+    height: 180px;
+}
+.btnskill{
+    background-color: #ffb52299;
+    border: 2px solid #ffaa0099;
+    color: white;
+}

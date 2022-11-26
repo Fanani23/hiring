@@ -10,6 +10,7 @@ import CarouselR from "./CarouselR.svg";
 import HomeBb from "./HomeBb.svg";
 import HomeLb from "./HomeLb.svg";
 import HomeLogoB from "./HomeLogoB.svg";
+import P from "./P.svg";
 
 const Assets = {
   HomeLogo,
@@ -24,6 +25,7 @@ const Assets = {
   HomeBb,
   HomeLb,
   HomeLogoB,
+  P,
 };
 
 export default Assets;
