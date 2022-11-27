@@ -14,9 +14,9 @@ const EmployeeRegister = (data, navigate) => async (dispatch) => {
       type: "REGISTER_EMPLOYEE_SUCCESS",
       payload: employee,
     });
-    console.log("employee register success");
+    console.log("Employee register success");
   } catch (error) {
-    console.log("employee register error");
+    console.log("Employee register error");
     console.log(error);
   }
 };

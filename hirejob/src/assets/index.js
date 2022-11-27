@@ -11,6 +11,7 @@ import HomeBb from "./HomeBb.svg";
 import HomeLb from "./HomeLb.svg";
 import HomeLogoB from "./HomeLogoB.svg";
 import P from "./P.svg";
+import LoginBg from "./LoginBg.svg";
 
 const Assets = {
   HomeLogo,
@@ -26,6 +27,7 @@ const Assets = {
   HomeLb,
   HomeLogoB,
   P,
+  LoginBg,
 };
 
 export default Assets;

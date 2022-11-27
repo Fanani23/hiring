@@ -4,7 +4,7 @@ import CompanyReducer from "./CompanyReducer";
 import EmployeeReducer from "./EmployeeReducer";
 
 const rootReducers = combineReducers({
-  // company: CompanyReducer,
+  company: CompanyReducer,
   employee: EmployeeReducer,
 });
 
