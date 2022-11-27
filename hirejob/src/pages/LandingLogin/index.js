@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import NavbarLogin from "../../components/NavbarLogin";
 import Assets from "../../assets";
 import Carousel from "react-multi-carousel";
-import Footer from "../../components/Footer";
+import FooterHome from "../../components/FooterHome";
 import "react-multi-carousel/lib/styles.css";
 
 const LandingLogin = () => {
@@ -213,7 +213,7 @@ const LandingLogin = () => {
         </div>
       </div>
       <div>
-        <Footer />
+        <FooterHome />
       </div>
     </div>
   );

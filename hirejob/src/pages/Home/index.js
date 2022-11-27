@@ -1,7 +1,34 @@
 import NavbarAfterLogin from "../../components/NavbarAfterLogin";
 import Assets from "../../assets";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import FooterHome from "../../components/FooterHome";
 
 const Home = () => {
+  // Handler data
+  const [data, setData] = useState([]);
+  // Handler filter
+  const [sort, setSort] = useState();
+  // Handler navigate
+  const navigate = useNavigate();
+
+  const getData = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8000/employee/profile`
+      );
+      setData(response.data.result);
+      console.log(response.data.result);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div className="container-xl mx-auto bg-slate-100">
       <div className="container-xl mx-auto">
@@ -61,26 +88,35 @@ const Home = () => {
           </div>
         </form>
         <div className="w-full mt-10 bg-amber-200">
-          <div className="max-w-2xl bg-white rounded-md shadow-md">
-            <div className="flex flex-row">
-              <img src={Assets.P} className="rounded-t-md" alt="" />
-              <div className="p-5">
-                <h5 className="mb-2 text-2xl text-start font-bold tracking-tight text-gray-900 light:text-black">
-                  Louis Tomlinson
-                </h5>
-                <p className="mb-3 font-normal text-start text-gray-400 light:text-gray-400">
-                  Web Developer
-                </p>
-                <p className="mb-3 font-normal text-start text-gray-400 light:text-gray-400">
-                  Location
-                </p>
-                <p className="w-20 h-8 pt-1 rounded-md bg-amber-200 text-center text-white">
-                  PHP
-                </p>
+          {data ? (
+            data.map((item) => (
+              <div className="max-w-2xl bg-white rounded-md shadow-md">
+                <div className="flex flex-row">
+                  <img src={Assets.P} className="rounded-t-md" alt="" />
+                  <div className="p-5">
+                    <h5 className="mb-2 text-2xl text-start font-bold tracking-tight text-gray-900 light:text-black">
+                      Louis Tomlinson
+                    </h5>
+                    <p className="mb-3 font-normal text-start text-gray-400 light:text-gray-400">
+                      Web Developer
+                    </p>
+                    <p className="mb-3 font-normal text-start text-gray-400 light:text-gray-400">
+                      Location
+                    </p>
+                    <p className="w-20 h-8 pt-1 rounded-md bg-amber-200 text-center text-white">
+                      PHP
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            ))
+          ) : (
+            <h2>Loading...</h2>
+          )}
         </div>
+      </div>
+      <div>
+        <FooterHome />
       </div>
     </div>
   );
