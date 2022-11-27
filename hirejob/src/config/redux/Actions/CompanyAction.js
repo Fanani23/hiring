@@ -14,6 +14,7 @@ const CompanyRegister = (data, navigate) => async (dispatch) => {
       type: "REGISTER_COMPANY_SUCCESS",
       payload: company,
     });
+    navigate("/login-company");
     console.log("Company register success");
   } catch (error) {
     console.log("Company register error");

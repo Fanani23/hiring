@@ -154,7 +154,7 @@ const RegisterCompany = () => {
             onClick={handleRegister}
             type="submit"
             id="form-register"
-            className="shadow bg-amber-400 rounded w-9/12 py-2 px-3 mt-6  mr-14 text-white leading-tight "
+            className="shadow bg-amber-400 rounded w-9/12 py-2 px-3 mt-6  mr-14 text-white leading-tight"
           >
             Daftar
           </button>
