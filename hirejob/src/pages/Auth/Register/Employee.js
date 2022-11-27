@@ -1,8 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from './Register.module.css'
 import Peworld from '../../../img/Group 978.png';
 
 export default function RegisterEmployee() {
+
+    const [fullname, setFullname] = useState('')
+    const [email, setEmail] = useState('')
+    const [telepon, setTelepon] = useState('')
+    const [password, setPassword] = useState('')
+    
+    const handleRegister = {
+        
+    }
+
     return (
         <div class={styles.container}>
              <div class={styles.bgImg}>
