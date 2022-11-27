@@ -1,11 +1,11 @@
-import React from 'react'
-import { combineReducers } from 'redux'
-import CompanyReducer from './CompanyReducer'
-import EmployeeReducer from './EmployeeReducer'
+import React from "react";
+import { combineReducers } from "redux";
+import CompanyReducer from "./CompanyReducer";
+import EmployeeReducer from "./EmployeeReducer";
 
 const rootReducers = combineReducers({
-    company: CompanyReducer,
-    employee: EmployeeReducer
-  });
+  // company: CompanyReducer,
+  employee: EmployeeReducer,
+});
 
-export default rootReducers
+export default rootReducers;
