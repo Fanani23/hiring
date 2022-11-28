@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Assets from "../../../assets";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import EmployeeRegister from "../../../config/redux/Actions/EmployeeAction";
+import EmployeeRegister from "../../../config/redux/Actions/Register/Employee";
 
 const RegisterEmployee = () => {
   const [fullname, setFullname] = useState("");

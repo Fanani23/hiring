@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import Assets from "../../../assets";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import CompanyLogin from "../../../config/redux/Actions/Login/Company";
 
 const LoginCompany = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
+
+  const handlerLogin = (e) => {
+    e.preventDefault();
+    console.log(email);
+    console.log(password);
+    let data = {
+      email,
+      password,
+    };
+    dispatch(CompanyLogin(data, navigate));
+  };
+
   return (
     <div className="container-xl mx-auto bg-slate-200 pt-10 pb-10">
       <div className="container flex flex-row mx-auto">
@@ -59,16 +77,24 @@ const LoginCompany = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod
             ipsum et dui rhoncus auctor.
           </p>
-          <form id="form-login" className="mt-16 mr-14 flex flex-col gap-5">
+          <form
+            onSubmit={handlerLogin}
+            id="form-login"
+            className="mt-16 mr-14 flex flex-col gap-5"
+          >
             <input
               type="email"
               className="shadow mx-auto appearance-none border rounded w-10/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="password"
               className="shadow mx-auto appearance-none border rounded w-10/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </form>
           <a
@@ -77,7 +103,12 @@ const LoginCompany = () => {
           >
             <p className="mt-6 mr-28">Lupa kata sandi?</p>
           </a>
-          <button className="shadow bg-amber-400 rounded w-9/12 py-2 px-3 mt-6  mr-14 text-white leading-tight ">
+          <button
+            onClick={handlerLogin}
+            type="submit"
+            form="form-login"
+            className="shadow bg-amber-400 rounded w-9/12 py-2 px-3 mt-6  mr-14 text-white leading-tight "
+          >
             Masuk
           </button>
           <p className="font-sans mx-auto mt-8 text-sm font-normal text-blaxk w-max h-5 text-center">

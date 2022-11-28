@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Assets from "../../../assets";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import CompanyRegister from "../../../config/redux/Actions/CompanyAction";
+import CompanyRegister from "../../../config/redux/Actions/Register/Company";
 
 const RegisterCompany = () => {
   const [fullname, setFullname] = useState("");
