@@ -8,10 +8,10 @@ import contactGitlab from "../../../../assets/kontak/gitlab.png";
 // import banner from '../../../../assets/banner.jpg'
 import styles from "./index.module.css";
 import { Link } from "react-router-dom";
-import Footer from "../../../../components/Footer";
+import Footer from "../../../../components/footer";
 import NavbarAfterLogin from "../../../../components/navbar/navbarAfterLogin";
 // import Portofolio from '../../../../components/portofolio'
-import PengalamanKerja from "../../../../components/PengalamanKerja";
+import PengalamanKerja from "../../../../components/pengalamanKerja";
 
 const ProfilePekerja = () => {
   return (

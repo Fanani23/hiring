@@ -5,7 +5,7 @@ import imgProfile from "../../../../assets/profile image.jpg";
 import location from "../../../../assets/location.png";
 import edit from "../../../../assets/edit.png";
 import { Link } from "react-router-dom";
-import Footer from "../../../../components/Footer";
+import Footer from "../../../../components/footer";
 
 const EditProfilePerusahaan = () => {
   return (

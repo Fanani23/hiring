@@ -3,7 +3,7 @@ import NavbarAfterLogin from "../../components/navbar/navbarAfterLogin";
 import styles from "./index.module.css";
 import imgProfile from "../../assets/profile image.jpg";
 import location from "../../assets/location.png";
-import Footer from "../../components/Footer";
+import Footer from "../../components/footer";
 
 const HirePage = () => {
   return (

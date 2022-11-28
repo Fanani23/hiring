@@ -8,7 +8,7 @@ import contactMail from "../../../../assets/kontak/mail.png";
 import contactInstagram from "../../../../assets/kontak/instagram.png";
 import contactPhone from "../../../../assets/kontak/phone.png";
 import contactLinkedin from "../../../../assets/kontak/linkedin.png";
-import Footer from "../../../../components/Footer";
+import Footer from "../../../../components/footer";
 
 const ProfilePerusahaan = () => {
   return (

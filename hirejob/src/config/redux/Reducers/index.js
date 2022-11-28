@@ -1,4 +1,3 @@
-import React from 'react'
 import { combineReducers } from 'redux'
 import CompanyReducer from './CompanyReducer'
 import EmployeeReducer from './EmployeeReducer'

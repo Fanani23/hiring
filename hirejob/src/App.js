@@ -1,10 +1,10 @@
 import "./App.css";
 import { Route, Routes, Navigate } from "react-router-dom";
-import ProfilePekerja from "./pages/profile/employee/mainProfile";
-import EditProfilePekerja from "./pages/profile/employee/editProfile";
+import ProfilePekerja from "./pages/Profile/Employee/MainProfile";
+import EditProfilePekerja from "./pages/Profile/Employee/EditProfile";
 import HirePage from "./pages/Hire";
-import ProfilePerusahaan from "./pages/profile/recruiter/mainProfile";
-import EditProfilePerusahaan from "./pages/profile/recruiter/editProfile";
+import ProfilePerusahaan from "./pages/Profile/Recruiter/MainProfile";
+import EditProfilePerusahaan from "./pages/Profile/Recruiter/EditProfile";
 import LandingPage from "./pages/LandingPage";
 import LoginEmployee from "../src/pages/Auth/Login/Employee";
 import LoginRecruiter from "../src/pages/Auth/Login/Recruiter";
