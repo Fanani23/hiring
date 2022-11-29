@@ -12,6 +12,7 @@ const RegisterCompany = () => {
   const [telepon, setTelepon] = useState("");
   const [password, setPassword] = useState({ password: "", confirm: "" });
   const [similarity, setSimilarity] = useState(true);
+
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
