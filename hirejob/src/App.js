@@ -9,6 +9,11 @@ import RegisterCompany from "./pages/Register/Company";
 import RegisterEmployee from "./pages/Register/Employee";
 import RequestReset from "./pages/RequestReset";
 import ResetPassword from "./pages/ResetPassword";
+import PengalamanKerja from "./components/pengalamanKerja";
+import ProfilePekerja from "./pages/Profile/Employee/MainProfile";
+import Portofolio from "./components/portofolio";
+import EditProfilePerusahaan from "./pages/Profile/Recruiter/EditProfile";
+import ProfilePerusahaan from "./pages/Profile/Recruiter/MainProfile";
 
 function App() {
   return (
@@ -41,6 +46,21 @@ function App() {
           </Route>
           <Route path="/reset-password">
             <Route index element={<ResetPassword />} />
+          </Route>
+          <Route path="/profile-perusahaan">
+            <Route index element={<ProfilePerusahaan />} />
+          </Route>
+          <Route path="/profile-pekerja">
+            <Route index element={<ProfilePekerja />} />
+          </Route>
+          <Route path="/pengalaman-kerja">
+            <Route index element={<PengalamanKerja />} />
+          </Route>
+          <Route path="/portofolio">
+            <Route index element={<Portofolio />} />
+          </Route>
+          <Route path="/edit/:id">
+            <Route index element={<EditProfilePerusahaan />} />
           </Route>
         </Routes>
       </div>
