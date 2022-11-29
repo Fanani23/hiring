@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../components/Navbar";
+import NavbarLogin from "../../components/NavbarLogin";
 import Assets from "../../assets";
 import Carousel from "react-multi-carousel";
 import FooterHome from "../../components/FooterHome";
 import "react-multi-carousel/lib/styles.css";
 
-const LandingPage = () => {
+const LandingLogin = () => {
   // Navigate
   const navigate = useNavigate();
   // Craousel
@@ -28,7 +28,7 @@ const LandingPage = () => {
   return (
     <div className="container-xl mx-auto bg-white">
       <div className="container-xl mx-auto">
-        <Navbar />
+        <NavbarLogin />
       </div>
       <div className="container bg-white mx-auto">
         <div className="flex flex-row">
@@ -219,4 +219,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default LandingLogin;
