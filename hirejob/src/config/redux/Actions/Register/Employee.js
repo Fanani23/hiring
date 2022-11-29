@@ -6,7 +6,7 @@ const EmployeeRegister = (data, navigate) => async (dispatch) => {
       type: "REGISTER_EMPLOYEE_PENDING",
     });
     const result = await axios.post(
-      `https://58c4-182-1-84-239.ap.ngrok.io/employee/register`,
+      `https://2ddc-182-1-66-90.ap.ngrok.io/employee/register`,
       data
     );
     const employee = result.data.data;

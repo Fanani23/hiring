@@ -6,7 +6,7 @@ const CompanyLogin = (data, navigate) => async (dispatch) => {
       type: "LOGIN_COMPANY_PENDING",
     });
     const result = await axios.post(
-      `https://4bbf-182-1-86-142.ap.ngrok.io/company/login`,
+      `https://2ddc-182-1-66-90.ap.ngrok.io/company/login`,
       data
     );
     const company = result.data.data;
