@@ -10,7 +10,7 @@ const RegisterCompany = () => {
   const [nama_perusahaan, setNama_Perusahaan] = useState("");
   const [jabatan, setJabatan] = useState("");
   const [telepon, setTelepon] = useState("");
-  const [password, setPassword] = useState({ password: "", confirm: "" });
+  const [password, setPassword] = useState("");
   const [similarity, setSimilarity] = useState(true);
 
   const dispatch = useDispatch();
@@ -152,12 +152,10 @@ const RegisterCompany = () => {
               className="shadow mx-auto appearance-none border rounded w-10/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               name="password"
               placeholder="Masukan kata sandi"
-              value={password.password}
-              onChange={(e) =>
-                setPassword({ ...password, password: e.target.value })
-              }
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
-            <input
+            {/* <input
               type="password"
               className={`${
                 similarity ? "" : "border-red-200"
@@ -169,7 +167,7 @@ const RegisterCompany = () => {
                 setPassword({ ...password, confirm: e.target.value })
               }
               onBlur={() => similarityPassword()}
-            />
+            /> */}
           </form>
           <a
             href="#"
