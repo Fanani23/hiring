@@ -8,7 +8,8 @@ const RegisterEmployee = () => {
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [telepon, setTelepon] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState({ password: "", confirm: "" });
+  const [similarity, setSimilarity] = useState(true);
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -27,6 +28,16 @@ const RegisterEmployee = () => {
     };
     console.log(data);
     dispatch(EmployeeRegister(data, navigate));
+  };
+
+  const similarityPassword = () => {
+    if (password.password !== password.confirm) {
+      setSimilarity(false);
+      console.log("here");
+    } else {
+      setSimilarity(true);
+      console.log("hehe");
+    }
   };
 
   return (
@@ -117,8 +128,23 @@ const RegisterEmployee = () => {
               className="shadow mx-auto appearance-none border rounded w-10/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               name="password"
               placeholder="Masukan kata sandi"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={password.password}
+              onChange={(e) =>
+                setPassword({ ...password, password: e.target.value })
+              }
+            />
+            <input
+              type="password"
+              className={`${
+                similarity ? "" : "border-red-200"
+              } shadow mx-auto appearance-none border-2 rounded w-10/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
+              name="password-confirmation"
+              placeholder="Masukan konfirmasi kata sandi"
+              value={password.confirm}
+              onChange={(e) =>
+                setPassword({ ...password, confirm: e.target.value })
+              }
+              onBlur={() => similarityPassword()}
             />
           </form>
           <a

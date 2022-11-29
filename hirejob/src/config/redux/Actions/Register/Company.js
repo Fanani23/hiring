@@ -6,7 +6,7 @@ const CompanyRegister = (data, navigate) => async (dispatch) => {
       type: "REGISTER_COMPANY_PENDING",
     });
     const result = await axios.post(
-      `http://localhost:8000/company/register`,
+      `https://58c4-182-1-84-239.ap.ngrok.io/company/register`,
       data
     );
     const company = result.data.data;
