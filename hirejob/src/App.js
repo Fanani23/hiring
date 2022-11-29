@@ -9,11 +9,11 @@ import RegisterCompany from "./pages/Register/Company";
 import RegisterEmployee from "./pages/Register/Employee";
 import RequestReset from "./pages/RequestReset";
 import ResetPassword from "./pages/ResetPassword";
-import PengalamanKerja from "./components/pengalamanKerja";
-import ProfilePekerja from "./pages/Profile/Employee/MainProfile";
-import Portofolio from "./components/portofolio";
-import EditProfilePerusahaan from "./pages/Profile/Recruiter/EditProfile";
-import ProfilePerusahaan from "./pages/Profile/Recruiter/MainProfile";
+// import PengalamanKerja from "./components/pengalamanKerja";
+// import ProfilePekerja from "./pages/profile/employee/mainProfile";
+// import Portofolio from "./components/portofolio";
+// import EditProfilePerusahaan from "./pages/profile/recruiter/editProfile";
+// import ProfilePerusahaan from "./pages/profile/recruiter/mainProfile";
 
 function App() {
   return (
@@ -47,7 +47,7 @@ function App() {
           <Route path="/reset-password">
             <Route index element={<ResetPassword />} />
           </Route>
-          <Route path="/profile-perusahaan">
+          {/* <Route path="/profile-perusahaan">
             <Route index element={<ProfilePerusahaan />} />
           </Route>
           <Route path="/profile-pekerja">
@@ -61,7 +61,7 @@ function App() {
           </Route>
           <Route path="/edit/:id">
             <Route index element={<EditProfilePerusahaan />} />
-          </Route>
+          </Route> */}
         </Routes>
       </div>
     </div>
