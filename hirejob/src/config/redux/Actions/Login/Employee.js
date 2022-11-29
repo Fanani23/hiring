@@ -15,7 +15,7 @@ const EmployeeLogin = (data, navigate) => async (dispatch) => {
       type: "LOGIN_EMPLOYEE_SUCCESS",
       payload: company,
     });
-    navigate("/landing-login");
+    navigate("/profilePekerja");
     console.log("Employee login success");
   } catch (error) {
     console.log("Employee login failed");
