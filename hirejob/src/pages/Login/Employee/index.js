@@ -98,7 +98,7 @@ const LoginEmployee = () => {
             />
           </form>
           <a
-            href="#"
+            href="/request-reset"
             className="font-sans text-sm font-normal text-black w-28 h-5 text-end"
           >
             <p className="mt-6 mr-28">Lupa kata sandi?</p>
