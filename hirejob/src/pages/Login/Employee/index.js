@@ -113,7 +113,7 @@ const LoginEmployee = () => {
           </button>
           <p className="font-sans mx-auto mt-8 text-sm font-normal text-blaxk w-max h-5 text-center">
             Anda belum punya akun?
-            <a className="text-amber-400" href="#">
+            <a href="/register-employee" className="text-amber-400">
               Daftar disini!
             </a>
           </p>
