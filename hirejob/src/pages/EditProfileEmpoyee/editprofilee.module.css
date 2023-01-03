@@ -1,0 +1,199 @@
+.page{
+    width: 100vw;
+    height: 400vh;
+    background-color: #E2E5ED;
+}
+.bg{
+    background-color: #5E50A1;
+    width: 100vw;
+    height: 411px;
+}
+.content{
+    display: flex;
+    justify-content: space-evenly;
+}
+.box{
+    width: 357px;
+    height: 379px;
+    background-color: white;
+    padding: 10px 30px 0px 30px;
+    margin-top: 200px;
+}
+.box1 .photo{
+    border-radius: 50px;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.box1 img{
+    width: 14px;
+    height: 16px;
+}
+.box1 h3{
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 56px;
+}
+.box1 p{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    color: gray;
+}
+.place{
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.box1 .box .file{
+    display: flex;
+    justify-content: center;
+}
+.file label{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+.file input{
+    /* visibility: hidden; */
+    text-align: center;
+}
+.btn1{
+    width: 357px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color: white;
+    background-color: #5E50A1;
+    margin-top: 20px;
+}
+.btn2{
+    width: 357px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color:  #5E50A1;
+    background-color: white; 
+    margin-top: 20px;
+}
+.box2{
+    width: 753px;
+    /* height: 1058px; */
+    background-color: pink;
+    margin-top: 200px;
+}
+.box2 h3{
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 56px;
+    padding-left: 50px;
+}
+.box2 p{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: #858096;
+    margin-top: 15px;
+    padding-left: 30px;
+}
+.box2 input{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    color: #858096;
+    width: 693px;
+    height: 50px;
+    border: 1px solid #E2E5ED;
+    margin-left: 30px;
+    padding-left: 15px;
+}
+.box2 textarea{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    color: #858096;
+    width: 693px;
+    height: 114px;
+    border: 1px solid #E2E5ED;
+    margin-left: 30px;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+.box2 .datadiri{
+    height: 731px;
+    background-color: white;
+}
+.box2 .skill{
+    height: 227px;
+    margin-top: 30px;
+    background-color: white;
+}
+.box2 .skill input{
+    margin-top: 25px;
+}
+.btn3{
+    width: 693px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color:  #5E50A1;
+    background-color: white; 
+    margin-top: 20px;
+    border: 1px solid orange;
+    margin-left: 30px;
+}
+.box2 .pengalaman{
+    height: 664px;
+    margin-top: 30px;
+    background-color: white;
+}
+.date{
+    display: flex;
+}
+.pengalaman .date .pt input{
+    width: 260px;
+}
+.pengalaman .date .dari input{
+    width: 120px;
+}
+.pengalaman .date .sampai input{
+    width: 120px;
+}
+.box2 .portofolio{
+    height: auto;
+    margin-top: 30px;
+    background-color: white;
+}
+.typeporto{
+    display: flex;
+    justify-content:flex-start;
+    margin-top: 10px;
+}
+.typeporto .mobile{
+    display: flex;
+    border: 1px solid #E2E5ED;
+    height: 50px;
+    align-items: center;
+    margin-left: 30px;
+    gap: 10px;
+    padding-right: 20px;
+}
+.typeporto input{
+    height: 20px;
+    width: 20px;
+}
+.typeporto .web{
+    display: flex;
+    border: 1px solid #E2E5ED;
+    height: 50px;
+    align-items: center;
+    margin-left: 30px;
+    gap: 10px;
+    padding-right: 20px;
+}
+
