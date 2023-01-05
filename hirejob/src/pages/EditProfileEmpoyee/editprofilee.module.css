@@ -1,6 +1,6 @@
 .page{
     width: 100vw;
-    height: 400vh;
+    height: 600vh;
     background-color: #E2E5ED;
 }
 .bg{
@@ -12,6 +12,7 @@
     display: flex;
     justify-content: space-evenly;
 }
+/* box kiri */
 .box{
     width: 357px;
     height: 379px;
@@ -20,15 +21,16 @@
     margin-top: 200px;
 }
 .box1 .photo{
-    border-radius: 50px;
+    border-radius: 100px;
     width: 150px;
     height: 150px;
     margin: 0 auto;
     margin-top: 10px;
 }
 .box1 img{
-    width: 14px;
-    height: 16px;
+    width: 12px;
+    height: 18px;
+    padding-top: 5px;
 }
 .box1 h3{
     font-size: 22px;
@@ -50,15 +52,18 @@
 .box1 .box .file{
     display: flex;
     justify-content: center;
+    gap: 2px;
+    margin: 0px 120px ;
 }
 .file label{
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    color: #9EA0A5;
 }
 .file input{
-    /* visibility: hidden; */
-    text-align: center;
+    line-height: 0px;
+    visibility: hidden;
 }
 .btn1{
     width: 357px;
@@ -80,10 +85,11 @@
     background-color: white; 
     margin-top: 20px;
 }
+/* box kanan */
 .box2{
     width: 753px;
     /* height: 1058px; */
-    background-color: pink;
+    /* background-color: pink; */
     margin-top: 200px;
 }
 .box2 h3{
@@ -128,41 +134,136 @@
     background-color: white;
 }
 .box2 .skill{
-    height: 227px;
+    height: 500px;
     margin-top: 30px;
     background-color: white;
 }
 .box2 .skill input{
-    margin-top: 25px;
+    margin-top: 20px;
+    width: 583px;
 }
-.btn3{
+.listskill{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 30px;
     width: 693px;
-    height: 50px;
-    font-size: 16px;
+}
+.listskill .skil{
+    /* background-color: #DB3022; */
+    display: flex;
+    margin-top: 10px;
+}
+.listskill .skil .btnskill{
+    height: 45px;
+    font-weight: 600;
+    line-height: 20px;
+    background: #FBB017;
+    /* border-radius: 4px; */
+    font-size: 14px;
+    color: #FFFFFF;
+    padding: 0px 10px;
+    /* margin: 0px 30px 0px 10px; */
+    border: 1px solid #9EA0A5;
+}
+/* .listskill .skil button{
+
+} */
+.btn3{
+    width: 100px;
+    height: 45px;
     font-weight: 700;
     line-height: 20px;
-    color:  #5E50A1;
-    background-color: white; 
     margin-top: 20px;
-    border: 1px solid orange;
-    margin-left: 30px;
+    background: #FBB017;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+.simpan{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
 }
 .box2 .pengalaman{
-    height: 664px;
+    height: auto;
     margin-top: 30px;
     background-color: white;
 }
+.listpengalaman{
+    display: flex; 
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px 30px;
+}
+.listpengalaman img{
+    width: 74px; 
+    height: 74px;
+}
+.desc{
+    width: 460px;
+    /* background-color: aquamarine; */
+}
+.desc h4{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+}
+.desc h6{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #46505C;
+}
+.desc span{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #9EA0A5;
+}
+.pengalaman .listpengalaman .desc p{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #1F2A36;
+    padding-left: 0px;
+    width: 120%;
+}
+.btnn{
+    height: 60px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    color: white;
+    /* background-color: #E2E5ED; */
+}
+.btnedit{
+    background-color: #FBB017;
+    margin-right: 15px;
+    width: 60px;
+    height: 40px;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+.btnx{
+    width: 50px;
+    background-color: #DB3022;
+    height: 40px;
+    border-radius: 4px;
+    margin-top: 8px;
+}
 .date{
     display: flex;
+    justify-content: space-between;
+    margin-right: 30px;
 }
 .pengalaman .date .pt input{
-    width: 260px;
+    width: 336px;
 }
 .pengalaman .date .dari input{
-    width: 120px;
+    width: 137px;
 }
 .pengalaman .date .sampai input{
-    width: 120px;
+    width: 137px;
 }
 .box2 .portofolio{
     height: auto;
@@ -171,7 +272,7 @@
 }
 .typeporto{
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     margin-top: 10px;
 }
 .typeporto .mobile{
@@ -184,8 +285,14 @@
     padding-right: 20px;
 }
 .typeporto input{
-    height: 20px;
-    width: 20px;
+    height: 18px;
+    width: 18px;
+}
+.typeporto label{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: #9EA0A5
 }
 .typeporto .web{
     display: flex;
@@ -196,4 +303,38 @@
     gap: 10px;
     padding-right: 20px;
 }
-
+.uplod input{
+    border: 1px solid #9EA0A5;
+    border-style: dashed;
+    padding: 10px 20px;
+}
+.listporto{
+    display: flex; 
+    justify-content: space-between;
+    margin: 20px 30px;
+}
+.listporto img{
+    width: 219px;
+    height: 148px;
+}
+.descpor{
+    /* background-color: #9EA0A5; */
+    width: 300px;
+}
+.descpor p{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #1F2A36;
+    padding-left: 0px;
+}
+.btn4{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;color: #FBB017;
+    border: 1px solid #FBB017;
+    border-radius: 4px;
+    width: 693px;
+    height: 50px;
+    margin: 20px 30px;
+}

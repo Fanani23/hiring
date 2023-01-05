@@ -35,20 +35,20 @@ export default function LoginEmployee() {
         </div>
             <div className="pl-24 py-12">
                 <h1 className="font-semibold text-3xl">Halo, PewPeople</h1>
-                <p className="py-2 mb-4" text-base>
+                <p className="py-2 mb-4" >
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer purus enim, dignissim nec mauris nec
                 </p>
 
                 <form onSubmit={postData} className={styles.form}>
-                    <p class="text-sm text-slate-400">Email</p>
+                    <p  className="text-sm text-slate-400">Email</p>
                         <input type="email" className=" form-control mb-3 py-2 w-full "  value={email} name="email" onChange={(e)=>setEmail(e.target.value)} placeholder="Masukan alamat email"/>
                     <p className="text-sm text-slate-400">Kata Sandi</p>
                         <input type="password" className="form-control mb-3 py-2 w-full "  value={password} name="password" onChange={(e)=>setPassword(e.target.value)} placeholder="Masukkan kata sandi"/>
 
-                    <p class="text-right text-sm my-3">
-                        <a className="text-yellow-500 text-slate-700 text-base" href="/ResetPassword">Lupa Kata Sandi?</a>
+                    <p className="text-right text-sm my-3">
+                        <a className="text-yellow-500 text-slate-700" href="/ResetPassword">Lupa Kata Sandi?</a>
                     </p>
-                    <button type='submit' className="text-center bg-yellow-500 text-white w-full py-2 my-2 rounded font-bold text-base ">Masuk</button>
+                    <button type='submit' className="text-center bg-yellow-500 text-white w-full py-2 my-2 rounded font-bold ">Masuk</button>
                 </form>
                 <p className="text-center text-sm text-slate-700">
                     Anda belum punya akun?

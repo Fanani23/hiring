@@ -64,7 +64,6 @@ function EditProfileCompany() {
         formData.append("company_phone", updateData.company_phone);
         formData.append("position", updateData.position);
         formData.append("city", updateData.city);
-        formData.append("position", updateData.position);
         formData.append("email", updateData.email);
         formData.append("province", updateData.province);
         formData.append("description", updateData.description);
@@ -72,7 +71,7 @@ function EditProfileCompany() {
         formData.append("photo", photo);
         console.log(formData)
     axios
-    .put(`http://localhost:3009/auth/update-company`, formData, user, {
+    .put(`http://localhost:3009/auth/profile`, formData, user, {
         "content-type": "multipart/form-data",
     })
     .then ((res) => {
@@ -101,16 +100,11 @@ function EditProfileCompany() {
                         </div>
                         {/* <img src={phot} alt="" className={styles.photo} /> */}
                         <img src={data.photo} alt="" className={styles.photo} />
-
-                        {/* <h3> PT. Martabat Jaya Abadi </h3> */}
                         <h3> {data.company_name} </h3>
-
-                        <p> Financial </p>
+                        <p>{data.position}</p>
                         <div className={styles.place}>
                             <img src={loc} alt="" />
-                            {/* <span> Purwokerto, Jawa Tengah </span> */}
                             <span> {data.city}, {data.province} </span>
-
                         </div>
                     </div>
                         <div className={styles.btn}>
@@ -123,8 +117,8 @@ function EditProfileCompany() {
                     <hr />
                     <p> Nama Perusahaan </p>
                         <input type="text" placeholder="Masukkan nama perusahaan" name="company_name" value={updateData.company_name} onChange={(e) => handleChange(e)} />
-                    <p> Bidang </p>
-                        <input type="text" placeholder="Masukkan bidang perusahaan ex:Financial" name="position" value={updateData.position} onChange={(e) => handleChange(e)} />
+                    <p> position </p>
+                        <input type="text" placeholder="Masukkan position" name="position" value={updateData.position} onChange={(e) => handleChange(e)} />
                     <p> Provinsi </p>
                         <input type="text" placeholder="Masukkan Provinsi" name="province" value={updateData.province} onChange={(e) => handleChange(e)}/>
                     <p> Kota </p>

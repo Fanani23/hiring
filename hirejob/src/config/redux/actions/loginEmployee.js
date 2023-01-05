@@ -6,6 +6,7 @@ export const  loginEmployee = (data,navigate) => async (dispact) =>{
         const user = result.data.data
         console.log(user);
         localStorage.setItem("token",user.token)
+        localStorage.setItem("user_id",user.id)
         dispact({type:"USER_LOGIN_SUCCESS",payload: user})
         navigate('/editProfileEmployee')
         console.log("user login success")
