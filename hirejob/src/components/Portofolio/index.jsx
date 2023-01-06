@@ -20,7 +20,7 @@ const [data, setData] = useState([]);
         .then ((res) => {
           console.log("get data portofolio succes");
           console.log(res.data, "data dari PORTOFOLIO");
-          res.data &&  setData(res.data.data);
+          res.data &&  setData(res.data.data.result);
         })
         .catch((err) => {
           console.log("get data fail");
@@ -132,8 +132,8 @@ const [data, setData] = useState([]);
     <div className={styles.portofolio}>
     <h3> Portofolio </h3>
     <hr />
-    {data.result ? (
-        data.result.map((item) => (
+    {data ? (
+        data.map((item) => (
     <div className={styles.listporto}>
         <img src={item.photo} alt="portofolio" />
         <div className={styles.descpor}>

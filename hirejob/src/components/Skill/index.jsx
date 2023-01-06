@@ -131,8 +131,8 @@ const deleteData = (e, id) => {
         data.map((item) => (
         <div className={styles.skil}>
             <button type="button" className={styles.btnskill} onClick={(e) => handleEdit(e, item.id)}> {item.name} </button>
-            <button type="button" onClick={(e) => deleteData(e, item.id)} className={styles.btnskill} > X </button>
-            <button type="submit" className={styles.btnskill} onClick={(e) => handleDataSkill(e, item.id)} style={{'marginRight':'20px'}} > ✓ </button>
+            <button type="submit" className={styles.btnskill} onClick={(e) => handleDataSkill(e, item.id)} > ✓ </button>
+            <button type="button" onClick={(e) => deleteData(e, item.id)} className={styles.btnskill} style={{'backgroundColor':'#DB3022;', 'marginRight':'20px'}}> X </button>
        </div>
         ))
         ) : (

@@ -23,7 +23,7 @@ function Experience() {
         .then ((res) => {
           console.log("get data succes");
           console.log(res.data, "data dari experienceeee");
-          res.data &&  setData(res.data.data);
+          res.data &&  setData(res.data.data.result);
         })
         .catch((err) => {
           console.log("get data fail");
@@ -137,9 +137,9 @@ const handleEdit = (e, id) => {
     <div className={styles.pengalaman}>
     <h3> Pengalaman kerja </h3>
     <hr />
-    {data.result ? (
-        data.result.map((item) => (
-    <div className={styles.listpengalaman}>
+    {data ? (
+        data.map((item) => (
+        <div className={styles.listpengalaman}>
         <img src={tokped} alt="logo pt." />
         <div className={styles.desc}>
             <h4> {item.company_name} </h4>
