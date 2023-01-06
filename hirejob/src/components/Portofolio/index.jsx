@@ -52,7 +52,7 @@ const [data, setData] = useState([]);
     const [input, setInput] = useState({
       repo_link:"",
       repo_type:"",
-      descripton:""
+      description:""
   })
   const handleChangeInput = (e) => {
       setInput ({

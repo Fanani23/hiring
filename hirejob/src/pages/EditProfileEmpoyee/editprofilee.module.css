@@ -324,6 +324,10 @@
     /* background-color: #9EA0A5; */
     width: 300px;
 }
+.descpor h6{
+    font-weight: 600;
+    padding-top: 10px;
+}
 .descpor p{
     font-weight: 400;
     font-size: 14px;
