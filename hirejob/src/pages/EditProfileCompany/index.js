@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import styles from './editprofile.module.css';
 import pen from '../../assets/pen.png';
 import loc from '../../assets/loc.png';
-// import phot from '../../assets/1.png';
+import phot from '../../assets/iconuser.png';
 
 function EditProfileCompany() {
 
@@ -87,6 +87,10 @@ function EditProfileCompany() {
       });
     };
 
+    const cancel=async (e)=>{
+        window.location.reload(false);
+    }
+
   return (
     <div className={styles.page}>
         <div className={styles.bg}>
@@ -98,8 +102,10 @@ function EditProfileCompany() {
                             <label htmlFor="files" className={styles.edit}> Edit </label>
                             <input type="file" id="files" name="photo" onChange={handlePhotoChange} />
                         </div>
-                        {/* <img src={phot} alt="" className={styles.photo} /> */}
-                        <img src={data.photo} alt="" className={styles.photo} />
+                        {data.photo === null ?(
+                            <img src={phot} alt="" className={styles.photo} /> ) : (
+                            <img src={data.photo} alt="" className={styles.photo} /> 
+                        )}
                         <h3> {data.company_name} </h3>
                         <p>{data.position}</p>
                         <div className={styles.place}>
@@ -109,30 +115,30 @@ function EditProfileCompany() {
                     </div>
                         <div className={styles.btn}>
                             <button type="submit" className={styles.btn1} onClick={(e) => handleData(e)} > Simpan </button><br/>
-                            <button type="submit" className={styles.btn2} > Batal </button>
+                            <button type="submit" className={styles.btn2} onClick={(e) => cancel(e)}> Batal </button>
                         </div>
                 </div>
                 <div className={styles.box2}>
                     <h3> Data diri </h3>
                     <hr />
                     <p> Nama Perusahaan </p>
-                        <input type="text" placeholder="Masukkan nama perusahaan" name="company_name" value={updateData.company_name} onChange={(e) => handleChange(e)} />
+                        <input type="text" placeholder={data.company_name} name="company_name" value={updateData.company_name} onChange={(e) => handleChange(e)} />
                     <p> position </p>
-                        <input type="text" placeholder="Masukkan position" name="position" value={updateData.position} onChange={(e) => handleChange(e)} />
+                        <input type="text" placeholder={data.position} name="position" value={updateData.position} onChange={(e) => handleChange(e)} />
                     <p> Provinsi </p>
-                        <input type="text" placeholder="Masukkan Provinsi" name="province" value={updateData.province} onChange={(e) => handleChange(e)}/>
+                        <input type="text" placeholder={data.province} name="province" value={updateData.province} onChange={(e) => handleChange(e)}/>
                     <p> Kota </p>
-                        <input type="text" placeholder="Masukkan Kota" name="city" value={updateData.city} onChange={(e) => handleChange(e)} />
+                        <input type="text" placeholder={data.city} name="city" value={updateData.city} onChange={(e) => handleChange(e)} />
                     <p> Deskripsi singkat </p>
-                        <textarea type="text" placeholder="Tuliskan deskripsi singkat" name="description" value={updateData.description} onChange={(e) => handleChange(e)} />
+                        <textarea type="text" placeholder={data.description} name="description" value={updateData.description} onChange={(e) => handleChange(e)} />
                     <p> Email </p>
-                        <input type="text" placeholder="Masukkan email " name="email" value={updateData.email} onChange={(e) => handleChange(e)} />
+                        <input type="text" placeholder={data.email} name="email" value={updateData.email} onChange={(e) => handleChange(e)} />
                     <p> Email Perusahaan </p>
-                        <input type="text" placeholder="Masukkan email perusahaan" name="company_email" value={updateData.company_email} onChange={(e) => handleChange(e)} />
+                        <input type="text" placeholder={data.company_email} name="company_email" value={updateData.company_email} onChange={(e) => handleChange(e)} />
                     <p> Nomor Telepon </p>
-                        <input type="number" placeholder="Masukkan nomor telepon" name="company_phone" value={updateData.company_phone} onChange={(e) => handleChange(e)} />
+                        <input type="number" placeholder={data.company_phone} name="company_phone" value={updateData.company_phone} onChange={(e) => handleChange(e)} />
                     <p> Linkedin </p>
-                        <input type="text" placeholder="Masukkan linkedin" name="linkedin" value={updateData.linkedin} onChange={(e) => handleChange(e)} />
+                        <input type="text" placeholder={data.linkedin} name="linkedin" value={updateData.linkedin} onChange={(e) => handleChange(e)} />
                 </div>
             </div>
 

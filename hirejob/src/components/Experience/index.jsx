@@ -56,7 +56,7 @@ function Experience() {
         company_name:"",
         work_start:"",
         work_ended:"",
-        descripton:""
+        description:""
     })
     const handleChangeInput = (e) => {
         setInput ({
@@ -91,6 +91,48 @@ function Experience() {
     });
     };
 
+//update experience
+const handleData = async (e, id) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("position", input.position);
+    formData.append("company_name", input.position);
+    formData.append("work_start", input.work_start);
+    formData.append("work_ended", input.work_ended);
+    formData.append("description", input.description);
+    console.log(formData, "dari update experince");
+axios
+.put(`http://localhost:3009/experience/${id}`, formData, user, {
+    "content-type": "multipart/form-data",
+})
+.then ((res) => {
+    console.log("Update experince succes");
+    console.log(res);
+    window.location.reload(false);
+    Swal.fire("Success", "Update experince success", "success");
+})
+.catch((err) => {
+    console.log("Update experincen failed");
+    console.log(err);
+    Swal.fire("Warning", "Update experince failed", "error");
+  });
+};    
+
+const handleEdit = (e, id) => {
+    axios
+    .get(`http://localhost:3009/experience/${id}`, user)
+    .then ((res) => {
+      console.log("get experince succes");
+      console.log(res.data, "DATA DARI GET experince by idddddd");
+      res.data &&  setData(res.data.data);
+    })
+    .catch((err) => {
+      console.log("get experince fail");
+      console.log(err);
+    });
+    }
+
+
   return (
     <div className={styles.pengalaman}>
     <h3> Pengalaman kerja </h3>
@@ -108,13 +150,13 @@ function Experience() {
             </p>
         </div>
         <div className={styles.btnn}>
-            <button type="submit" className={styles.btnedit}> Edit </button>
-            <button type="submit" className={styles.btnx} onClick={(e) => deleteData(e, item.id)}> X </button>
+            <button type="submit" className={styles.btnedit} onClick={(e) => handleEdit(e, item.id)}> Edit </button>
+            <button type="submit" className={styles.btnedit} style={{'width':'40px'}} onClick={(e) => handleData(e, item.id)} > ✓ </button>
+            <button type="submit" className={styles.btnx} onClick={(e) => deleteData(e, id)}> X </button>
         </div>
     </div>
      ))
-    ) : (
-        <h1>...Loading</h1>
+    ) : ( <h1>...Loading</h1>
     )}
     <hr />
     <div className={styles.boxpengalaman}>

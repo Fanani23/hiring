@@ -41,7 +41,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 24px;
-    color: gray;
+    color: #9EA0A5;
 }
 .place{
     display: flex;
@@ -110,7 +110,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 19px;
-    color: #858096;
+    /* color: #858096; */
     width: 693px;
     height: 50px;
     border: 1px solid #E2E5ED;
@@ -121,7 +121,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 19px;
-    color: #858096;
+    /* color: #858096; */
     width: 693px;
     height: 114px;
     border: 1px solid #E2E5ED;
@@ -134,9 +134,10 @@
     background-color: white;
 }
 .box2 .skill{
-    height: 500px;
+    height: auto;
     margin-top: 30px;
     background-color: white;
+    padding-bottom: 40px;
 }
 .box2 .skill input{
     margin-top: 20px;
@@ -165,9 +166,6 @@
     /* margin: 0px 30px 0px 10px; */
     border: 1px solid #9EA0A5;
 }
-/* .listskill .skil button{
-
-} */
 .btn3{
     width: 100px;
     height: 45px;
@@ -238,14 +236,14 @@
 }
 .btnedit{
     background-color: #FBB017;
-    margin-right: 15px;
-    width: 60px;
+    margin-right: 10px;
+    width: 50px;
     height: 40px;
     border-radius: 4px;
     margin-top: 8px;
 }
 .btnx{
-    width: 50px;
+    width: 30px;
     background-color: #DB3022;
     height: 40px;
     border-radius: 4px;

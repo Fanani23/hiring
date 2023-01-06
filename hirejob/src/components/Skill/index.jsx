@@ -7,7 +7,7 @@ function Skill() {
 
     const [data, setData] = useState([]);
     const token = localStorage.getItem("token");
-    const id = localStorage.getItem("user_id");
+    // const id = localStorage.getItem("user_id");
     const user= {
       headers: {
       Authorization: `Bearer ${token}`,
@@ -68,22 +68,11 @@ function Skill() {
     };
 
 //Update skill
-    const [updateSkill, setUpdateSkill] = useState({
-        name: data.name
-    })
-    
-    const handleChangeSkill = (e) => {
-        setUpdateSkill({
-          ...updateSkill,
-          [e.target.name]:e.target.value
-        })
-        console.log(data)
-    }
 
-    const handleDataSkill = async (e) => {
+    const handleDataSkill = async (e, id) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append("name", updateSkill.name);
+        formData.append("name", input.name);
         console.log(formData, "dari update skill");
     axios
     .put(`http://localhost:3009/skill/${id}`, formData, user, {
@@ -102,6 +91,21 @@ function Skill() {
       });
     };    
 
+    const handleEdit = (e, id) => {
+        axios
+        .get(`http://localhost:3009/skill/${id}`, user)
+        .then ((res) => {
+          console.log("get skill succes");
+          console.log(res.data, "DATA DARI GET SKILLLLLLL by idddddd");
+          res.data &&  setData(res.data.data);
+        })
+        .catch((err) => {
+          console.log("get skill fail");
+          console.log(err);
+        });
+        }
+    
+
 // delete skill
 const deleteData = (e, id) => {
     axios.delete(`http://localhost:3009/skill/${id}`, user)
@@ -118,32 +122,27 @@ const deleteData = (e, id) => {
     })
   }
 
-
   return (
     <div className={styles.skill}>
     <h3> Skill </h3>
-    <hr />
-    <div className={styles.simpan}>
-        <input type="text" placeholder="Javascript, Html, css" name="name" onChange={handleChangeInput} value={input.name} />
-        <button type="submit" className={styles.btn3} onClick={(e) => postSkill(e)}  > Tambah Skill </button>
-    </div>
-    <h3> My Skill </h3>
     <hr/>
     <div className={styles.listskill}>
     {data ? (
         data.map((item) => (
         <div className={styles.skil}>
-            <button type="button" className={styles.btnskill}> {item.name} </button>
-            <button type="button" onClick={(e) => deleteData(e, item.id)} className={styles.btnskill} style={{'marginRight':'20px'}}> X </button>
+            <button type="button" className={styles.btnskill} onClick={(e) => handleEdit(e, item.id)}> {item.name} </button>
+            <button type="button" onClick={(e) => deleteData(e, item.id)} className={styles.btnskill} > X </button>
+            <button type="submit" className={styles.btnskill} onClick={(e) => handleDataSkill(e, item.id)} style={{'marginRight':'20px'}} > ✓ </button>
        </div>
         ))
         ) : (
            <h1>...Loading</h1>
         )}
     </div>
+    <hr/>
     <div className={styles.simpan}>
-        <input type="text" placeholder="Javascript, Html, css" name="name" onChange={handleChangeSkill} value={updateSkill.name} />
-        <button type="submit" className={styles.btn3} onClick={(e) => handleDataSkill(e)}  > Simpan  </button>
+        <input type="text" placeholder="Javascript, Html, css" name="name" onChange={handleChangeInput} value={input.name} />
+        <button type="submit" className={styles.btn3} onClick={(e) => postSkill(e)}  > Tambah Skill </button>
     </div>
   </div>
   )
