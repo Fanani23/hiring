@@ -5,7 +5,7 @@ import styles from './editprofilee.module.css';
 import Skill from "../../components/Skill"
 import pen from '../../assets/pen.png';
 import loc from '../../assets/loc.png';
-// import phot from '../../assets/1.png';
+import phot from '../../assets/iconuser.png';
 import Portofolio from "../../components/Portofolio";
 import Experience from "../../components/Experience";
 
@@ -15,7 +15,7 @@ function EditProfileEmployee() {
     const [data, setData] = useState([]);
     const [photo, setPhoto] = useState(null); 
     const token = localStorage.getItem("token");
-    const id = localStorage.getItem("user_id");
+    // const id = localStorage.getItem("user_id");
     const user= {
       headers: {
       Authorization: `Bearer ${token}`,
@@ -40,7 +40,7 @@ function EditProfileEmployee() {
 
 // update data diri employee
     const [updateData, setUpdateData] = useState({
-        // name: data.name,
+        name: data.name,
         job: data.job,
         province: data.province,
         city: data.city,
@@ -64,12 +64,13 @@ function EditProfileEmployee() {
     const handleData = async (e) => {
         e.preventDefault();
         const formData = new FormData();
-        // formData.append("name", updateData.name);
+        formData.append("name", updateData.name);
         formData.append("job", updateData.job);
         formData.append("city", updateData.city);
         formData.append("province", updateData.province);
         formData.append("workplace", updateData.workplace);
         formData.append("linkedin", updateData.linkedin);
+        formData.append("description", updateData.description);
         formData.append("photo", photo);
         console.log(formData, "dari update data profile");
     axios
@@ -89,6 +90,9 @@ function EditProfileEmployee() {
       });
     };
        
+    const cancel=async (e)=>{
+        window.location.reload(false);
+    }
 
   return (
     <div className={styles.page}>
@@ -96,8 +100,10 @@ function EditProfileEmployee() {
             <div className={styles.content}>
                 <div className={styles.box1}>
                     <div className={styles.box}>
-                        {/* <img src={phot} alt="" className={styles.photo} /> */}
-                        <img src={data.photo} alt="" className={styles.photo} />
+                        {data.photo === null ?(
+                            <img src={phot} alt="" className={styles.img} /> ) : (
+                            <img src={data.photo} alt="" className={styles.photo} /> 
+                        )}
                         <div className={styles.file}>
                             <img src={pen} alt="" />
                             <label htmlFor="files" className={styles.edit}> Edit </label>
@@ -113,7 +119,7 @@ function EditProfileEmployee() {
                     </div>
                         <div className={styles.btn}>
                             <button type="submit" className={styles.btn1} onClick={(e) => handleData(e)} > Simpan </button><br/>
-                            <button type="submit" className={styles.btn2} > Batal </button>
+                            <button type="reset" className={styles.btn2} onClick={(e) => cancel(e)}> Batal </button>
                         </div>
                 </div>
                 <div className={styles.box2}>
@@ -121,15 +127,17 @@ function EditProfileEmployee() {
                         <h3> Data diri </h3>
                         <hr />
                         <p> Nama Lengkap </p>
-                            <input type="text" placeholder="Masukkan nama lengkap" />
+                            <input type="text" placeholder={data.name} name="name" value={updateData.name} onChange={(e) => handleChange(e)}/>
                         <p> Job desk </p>
-                            <input type="text" placeholder="Masukkan job desk" name="job" value={updateData.job} onChange={(e) => handleChange(e)} />
+                            <input type="text" placeholder={data.job} name="job" value={updateData.job} onChange={(e) => handleChange(e)} />
                         <p> Province </p>
-                            <input type="text" placeholder="Masukkan Province" name="province" value={updateData.province} onChange={(e) => handleChange(e)} />
+                            <input type="text" placeholder={data.province} name="province" value={updateData.province} onChange={(e) => handleChange(e)} />
                         <p> Kota </p>
-                            <input type="text" placeholder="Masukkan Kota" name="city" value={updateData.city} onChange={(e) => handleChange(e)} />
+                            <input type="text" placeholder={data.city} name="city" value={updateData.city} onChange={(e) => handleChange(e)} />
+                        <p> Workplace </p>
+                            <input type="workplace" placeholder={data.workplace} name="workplace" value={updateData.workplace} onChange={(e) => handleChange(e)} />
                         <p> Deskripsi singkat </p>
-                            <textarea type="text" placeholder="Tuliskan deskripsi singkat" name="description" value={updateData.description} onChange={(e) => handleChange(e)} />
+                            <textarea type="text" placeholder={data.description} name="description" value={updateData.description} onChange={(e) => handleChange(e)} />
                     </div>
                     <div>
                         <Skill />

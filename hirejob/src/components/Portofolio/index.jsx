@@ -20,7 +20,7 @@ const [data, setData] = useState([]);
         .then ((res) => {
           console.log("get data portofolio succes");
           console.log(res.data, "data dari PORTOFOLIO");
-          res.data &&  setData(res.data.data);
+          res.data &&  setData(res.data.data.result);
         })
         .catch((err) => {
           console.log("get data fail");
@@ -31,7 +31,7 @@ const [data, setData] = useState([]);
         getData()
       }, [])
 
-//delete data porto
+//delete data portofolio
     const deleteData = (e, id) => {
       axios.delete(`http://localhost:3009/portofolio/${id}`, user)
       .then((res)=>{
@@ -47,12 +47,12 @@ const [data, setData] = useState([]);
       })
     }
 
-    //input experience
+    //input portofolio
     const [photo, setPhoto] = useState(null)
     const [input, setInput] = useState({
       repo_link:"",
       repo_type:"",
-      descripton:""
+      description:""
   })
   const handleChangeInput = (e) => {
       setInput ({
@@ -90,12 +90,50 @@ const [data, setData] = useState([]);
   });
   };
 
+//Update portofolio
+    const handleData = async (e, id) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("name", input.name);
+        console.log(formData, "dari update portofolio");
+    axios
+    .put(`http://localhost:3009/portofolio/${id}`, formData, user, {
+        "content-type": "multipart/form-data",
+    })
+    .then ((res) => {
+        console.log("Update portofolio succes");
+        console.log(res);
+        window.location.reload(false);
+        Swal.fire("Success", "Update portofolio success", "success");
+    })
+    .catch((err) => {
+        console.log("Update portofolio failed");
+        console.log(err);
+        Swal.fire("Warning", "Update portofolio failed", "error");
+    });
+    };    
+
+    const handleEdit = (e, id) => {
+        axios
+        .get(`http://localhost:3009/portofolio/${id}`, user)
+        .then ((res) => {
+        console.log("get portofolio succes");
+        console.log(res.data, "DATA DARI GET portofolio by idddddd");
+        res.data &&  setData(res.data.data);
+        })
+        .catch((err) => {
+        console.log("get portofolio fail");
+        console.log(err);
+        });
+        }
+
+
   return (
     <div className={styles.portofolio}>
     <h3> Portofolio </h3>
     <hr />
-    {data.result ? (
-        data.result.map((item) => (
+    {data ? (
+        data.map((item) => (
     <div className={styles.listporto}>
         <img src={item.photo} alt="portofolio" />
         <div className={styles.descpor}>
@@ -103,7 +141,8 @@ const [data, setData] = useState([]);
             <p> {item.repo_link} </p>
         </div>
         <div className={styles.btnn}>
-            <button type="submit" className={styles.btnedit}> Edit </button>
+            <button type="submit" className={styles.btnedit} onClick={(e) => handleEdit(e, item.id)}  > Edit </button>
+            <button type="submit" className={styles.btnedit} style={{'width':'40px'}} onClick={(e) => handleData(e, item.id)}> ✓ </button>
             <button type="submit" className={styles.btnx} onClick={(e) => deleteData(e, item.id)}> X </button>
         </div>
     </div>
