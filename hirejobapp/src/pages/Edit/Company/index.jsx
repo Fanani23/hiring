@@ -1,8 +1,100 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import style from "./editcompany.module.css";
 import assets from "../../../assets";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { Dropdown } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const EditCompany = () => {
+  const [data, setData] = useState([]);
+  const [photo, setPhoto] = useState(null);
+  const [company_name, setCompany_name] = useState("");
+  const [position, setPosition] = useState("");
+  const [province, setProvince] = useState("");
+  const [city, setCity] = useState("");
+  const [description, setDescription] = useState("");
+  const [company_email, setCompany_email] = useState("");
+  const [company_phone, setCompany_phone] = useState("");
+  const [linkedin, setLinkedin] = useState("");
+
+  let token = localStorage.getItem("token");
+
+  const navigate = useNavigate();
+
+  const auth = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const getProfile = async (url) => {
+    try {
+      const res = await axios.get(url, auth);
+      setData(res.data.data[0]);
+      console.log(res.data.data[0]);
+      setCompany_name(res.data.data[0].company_name);
+      setPosition(res.data.data[0].position);
+      setProvince(res.data.data[0].province);
+      setCity(res.data.data[0].city);
+      setDescription(res.data.data[0].description);
+      setCompany_email(res.data.data[0].company_email);
+      setCompany_phone(res.data.data[0].company_phone);
+      setLinkedin(res.data.data[0].linkedin);
+    } catch (err) {
+      console.log("Get profile data failed", err);
+    }
+  };
+
+  useEffect(() => {
+    let url = `http://localhost:3005/auth/profile`;
+    getProfile(url);
+  }, []);
+
+  useEffect(() => {
+    getProfile();
+  }, []);
+
+  const handlePhotoChange = (e) => {
+    setPhoto(e.target.files[0]);
+    console.log(e.target.files[0]);
+  };
+
+  const handleUpdateProfile = async (e) => {
+    e.preventDefault();
+    try {
+      const formData = new FormData();
+      formData.append("company_name", company_name);
+      formData.append("position", position);
+      formData.append("province", province);
+      formData.append("city", city);
+      formData.append("description", description);
+      formData.append("company_email", company_email);
+      formData.append("company_phone", company_phone);
+      formData.append("linkedin", linkedin);
+      formData.append("photo", photo);
+      await axios.put(
+        `http://localhost:3005/auth/update-company`,
+        formData,
+        auth,
+        {
+          "content-type": "multipart/form-data",
+        }
+      );
+      console.log("Update profile success");
+      Swal.fire("Success", "Update profile success", "success");
+      window.location.reload(false);
+    } catch (err) {
+      console.log(err);
+      Swal.fire("Warning", "Update profile failed", "error");
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login/company");
+  };
+
   return (
     <div className={style.containerECompany}>
       <div className={style.containerECompanyNavBasis}>
@@ -18,7 +110,18 @@ const EditCompany = () => {
               <img src={assets.logomail} alt="" />
             </div>
             <div className={style.ECNButtonRight}>
-              <img src={assets.navprofiledef} alt="" />
+              <Dropdown className="profile-box">
+                <Dropdown.Toggle className="dropdown" variant="secondary">
+                  <img src={assets.navprofiledef} alt="" />
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item href="/home">Home</Dropdown.Item>
+                  <Dropdown.Item href="/edit-company">My Profile</Dropdown.Item>
+                  <Dropdown.Item onClick={() => handleLogout()}>
+                    Logout
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </div>
           </div>
         </div>
@@ -28,17 +131,32 @@ const EditCompany = () => {
           <div className={style.ECBFieldLeft}>
             <div className={style.ECBFieldLeftValue}>
               <div>
-                <img
-                  className={style.ECBFLVImg}
-                  src={assets.navprofiledef}
-                  alt=""
+                {data.photo === null ? (
+                  <img
+                    className={style.ECBFLVImg}
+                    src={assets.navprofiledef}
+                    alt=""
+                  />
+                ) : (
+                  <img className={style.ECBFLVImg} src={data.photo} alt="" />
+                )}
+
+                <label className={style.EEBFLEditLabel} htmlFor="photo">
+                  Edit
+                </label>
+                <input
+                  type="file"
+                  id="photo"
+                  name="photo"
+                  className={style.EEBFLEdit}
+                  onChange={handlePhotoChange}
                 />
               </div>
               <div>
-                <p className={style.ECBFLVName}>Louis Tomlison</p>
+                <p className={style.ECBFLVName}>{data.company_name}</p>
               </div>
               <div>
-                <p className={style.ECBFLVPos}>Web Developer</p>
+                <p className={style.ECBFLVPos}>{data.position}</p>
               </div>
               <div className={style.ECBFLVLocation}>
                 <img
@@ -46,10 +164,16 @@ const EditCompany = () => {
                   src={assets.mappin}
                   alt=""
                 />
-                <p className={style.ECBFLVLocationText}>Mojokerto</p>
+                <div className="mb-4">
+                  <p className={style.ECBFLVLocationText}>{data.city}</p>
+                </div>
               </div>
             </div>
-            <button type="submit" className={style.ECBFieldLeftButton}>
+            <button
+              type="submit"
+              className={style.ECBFieldLeftButton}
+              onClick={handleUpdateProfile}
+            >
               Save
             </button>
             <button type="button" className={style.ECBFieldLeftButton2}>
@@ -63,88 +187,128 @@ const EditCompany = () => {
               </div>
               <form className={style.ECBFRVForm} action="">
                 <div>
-                  <label className={style.ECBFRVFormLabel} htmlFor="name">
-                    Name
+                  <label
+                    className={style.ECBFRVFormLabel}
+                    htmlFor="company_name"
+                  >
+                    Name Perusahaan
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Nama"
+                    id="company_name"
+                    name="company_name"
+                    placeholder="Nama Perusahaan"
                     className="form-control"
+                    value={company_name}
+                    onChange={(e) => setCompany_name(e.target.value)}
                   />
                 </div>
                 <div>
-                  <label className={style.ECBFRVFormLabel} htmlFor="bidang">
-                    Bidang
+                  <label className={style.ECBFRVFormLabel} htmlFor="position">
+                    Position
                   </label>
                   <input
                     type="text"
-                    id="bidang"
-                    name="bidang"
-                    placeholder="Bidang"
+                    id="position"
+                    name="position"
+                    placeholder="Position"
                     className="form-control"
+                    value={position}
+                    onChange={(e) => setPosition(e.target.value)}
                   />
                 </div>
                 <div>
-                  <label className={style.ECBFRVFormLabel} htmlFor="provinsi">
+                  <label className={style.ECBFRVFormLabel} htmlFor="province">
                     Provinsi
                   </label>
                   <input
                     type="text"
-                    id="provinsi"
-                    name="provinsi"
+                    id="province"
+                    name="province"
                     placeholder="Provinsi"
                     className="form-control"
+                    value={province}
+                    onChange={(e) => setProvince(e.target.value)}
                   />
                 </div>
                 <div>
-                  <label className={style.ECBFRVFormLabel} htmlFor="kota">
+                  <label className={style.ECBFRVFormLabel} htmlFor="city">
                     Kota
                   </label>
                   <input
                     type="text"
-                    id="kota"
-                    name="kota"
+                    id="city"
+                    name="city"
                     placeholder="Kota"
                     className="form-control"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
                   />
                 </div>
                 <div>
-                  <label className={style.ECBFRVFormLabel} htmlFor="desc">
+                  <label
+                    className={style.ECBFRVFormLabel}
+                    htmlFor="description"
+                  >
                     Deskripsi
                   </label>
                   <textarea
                     type="text"
-                    id="desc"
-                    name="desc"
-                    row={5}
+                    id="description"
+                    name="description"
+                    row={6}
                     placeholder="Deskripsi"
                     className="form-control"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                   />
                 </div>
                 <div>
-                  <label className={style.ECBFRVFormLabel} htmlFor="email">
+                  <label
+                    className={style.ECBFRVFormLabel}
+                    htmlFor="company_email"
+                  >
                     Email
                   </label>
                   <input
                     type="email"
-                    id="email"
-                    name="email"
+                    id="company_email"
+                    name="company_email"
                     placeholder="Email"
                     className="form-control"
+                    value={company_email}
+                    onChange={(e) => setCompany_email(e.target.value)}
                   />
                 </div>
-                <div className="mb-5">
-                  <label className={style.ECBFRVFormLabel} htmlFor="phone">
+                <div className="">
+                  <label
+                    className={style.ECBFRVFormLabel}
+                    htmlFor="company_phone"
+                  >
                     Phone
                   </label>
                   <input
                     type="text"
-                    id="phone"
-                    name="phone"
+                    id="company_phone"
+                    name="company_phone"
                     placeholder="Phone"
                     className="form-control"
+                    value={company_phone}
+                    onChange={(e) => setCompany_phone(e.target.value)}
+                  />
+                </div>
+                <div className="mb-5">
+                  <label className={style.ECBFRVFormLabel} htmlFor="linkedin">
+                    Linkedin
+                  </label>
+                  <input
+                    type="text"
+                    id="linkedin"
+                    name="linkedin"
+                    placeholder="Linkedin"
+                    className="form-control"
+                    value={linkedin}
+                    onChange={(e) => setLinkedin(e.target.value)}
                   />
                 </div>
               </form>

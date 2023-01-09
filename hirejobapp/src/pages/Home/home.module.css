@@ -236,3 +236,9 @@
   font-weight: 400;
   color: #ffffff;
 }
+.PhotoImg {
+  width: 32px;
+  height: 32px;
+  border: transparent;
+  border-radius: 50%;
+}

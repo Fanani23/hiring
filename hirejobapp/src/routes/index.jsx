@@ -7,8 +7,14 @@ import {
   Outlet,
 } from "react-router-dom";
 import Swal from "sweetalert2";
+import ChatCompany from "../pages/Chat/Company";
+import ChatCompanyDetail from "../pages/Chat/Company/Detail";
+import ChatEmployee from "../pages/Chat/Employee";
+import ChatEmployeeDetail from "../pages/Chat/Employee/Detail";
 import EditCompany from "../pages/Edit/Company";
 import EditEmployee from "../pages/Edit/Employee";
+import EditExperience from "../pages/Edit/Employee/EditExperience";
+import EditPortfolio from "../pages/Edit/Employee/EditPortfolio";
 import Hire from "../pages/Hire";
 import Home from "../pages/Home";
 import LandingPage from "../pages/LandingPage";
@@ -22,15 +28,45 @@ import RequestEmail from "../pages/ResetPassword/RequestEmail";
 import Verification from "../pages/Verification";
 
 const Router = () => {
-  //   const PrivateRoute = () => {
-  //     const token = localStorage.getItem("token");
-  //     if (token) {
-  //       return <Outlet />;
-  //     } else {
-  //       Swal.fire("Warning", "Please login first", "error");
-  //       return <Navigate to="/login" />;
-  //     }
-  //   };
+  const PrivateRoute = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      return <Outlet />;
+    } else {
+      Swal.fire("Warning", "Please login first", "error");
+      return <Navigate to="/" />;
+    }
+  };
+
+  const PrivateRoleEmployee = () => {
+    const token = localStorage.getItem("token");
+    const role = localStorage.getItem("user_role");
+    if (token && role === "employee") {
+      return <Outlet />;
+    } else {
+      Swal.fire(
+        "Warning",
+        "User role is not match, please login again",
+        "error"
+      );
+      return <Navigate to="/" />;
+    }
+  };
+
+  const PrivateRoleCompany = () => {
+    const token = localStorage.getItem("token");
+    const role = localStorage.getItem("user_role");
+    if (token && role === "company") {
+      return <Outlet />;
+    } else {
+      Swal.fire(
+        "Warning",
+        "User role is not match, please login again",
+        "error"
+      );
+      return <Navigate to="/" />;
+    }
+  };
 
   return (
     <BrowserRouter>
@@ -43,11 +79,39 @@ const Router = () => {
         <Route path="/verification" element={<Verification />} />
         <Route path="/request-reset" element={<RequestEmail />} />
         <Route path="/new-password" element={<NewPassword />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/hire" element={<Hire />} />
-        <Route path="/edit-company" element={<EditCompany />} />
-        <Route path="/edit-employee" element={<EditEmployee />} />
+        <Route path="/home" element={<PrivateRoute />}>
+          <Route index element={<Home />} />
+        </Route>
+        <Route path="/profile/:id" element={<PrivateRoleCompany />}>
+          <Route index element={<Profile />} />
+        </Route>
+        <Route path="/hire/:id" element={<PrivateRoleCompany />}>
+          <Route index element={<Hire />} />
+        </Route>
+        <Route path="/edit-company" element={<PrivateRoleCompany />}>
+          <Route index element={<EditCompany />} />
+        </Route>
+        <Route path="/edit-employee" element={<PrivateRoleEmployee />}>
+          <Route index element={<EditEmployee />} />
+        </Route>
+        <Route path="/edit-experience/:id" element={<PrivateRoleEmployee />}>
+          <Route index element={<EditExperience />} />
+        </Route>
+        <Route path="/edit-portfolio/:id" element={<PrivateRoleEmployee />}>
+          <Route index element={<EditPortfolio />} />
+        </Route>
+        <Route path="/chat-employee/" element={<PrivateRoleEmployee />}>
+          <Route index element={<ChatEmployee />} />
+        </Route>
+        <Route path="/chat-employee/:id" element={<PrivateRoleEmployee />}>
+          <Route index element={<ChatEmployeeDetail />} />
+        </Route>
+        <Route path="/chat-company" element={<PrivateRoleCompany />}>
+          <Route index element={<ChatCompany />} />
+        </Route>
+        <Route path="/chat-company/:id" element={<PrivateRoleCompany />}>
+          <Route index element={<ChatCompanyDetail />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

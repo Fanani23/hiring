@@ -16,6 +16,7 @@ export const registerCompany = (data, navigate) => async (dispatch) => {
       "Register success, we already sent otp to your email. You can verification your account first by your email",
       "success"
     );
+    navigate("/verification");
   } catch (err) {
     console.log(err);
     Swal.fire("Warning", "Register failed", "error");

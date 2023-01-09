@@ -19,6 +19,8 @@ import logogitlab from "./logogitlab.svg";
 import lineprofile from "./lineprofile.svg";
 import profileport from "./profileport.svg";
 import profileexp from "./profileexp.svg";
+import chatprofile from "./chatprofile.svg";
+import buttonchat from "./buttonchat.svg";
 
 const assets = {
   landingbottombottom,
@@ -42,6 +44,8 @@ const assets = {
   lineprofile,
   profileport,
   profileexp,
+  chatprofile,
+  buttonchat,
 };
 
 export default assets;

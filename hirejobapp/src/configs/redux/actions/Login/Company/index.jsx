@@ -13,12 +13,14 @@ export const loginCompany = (data, navigate) => async (dispatch) => {
     const name = company.name;
     const email = company.email;
     const phone = company.phone;
+    const role = company.role;
     console.log(token, "token company");
     localStorage.setItem("token", token);
     localStorage.setItem("user_id", id);
     localStorage.setItem("user_name", name);
     localStorage.setItem("user_email", email);
     localStorage.setItem("user_phone", phone);
+    localStorage.setItem("user_role", role);
     dispatch({ type: "COMPANY_LOGIN_SUCCESS", payload: company });
     Swal.fire("Success", "Login success", "success");
     navigate("/home");
